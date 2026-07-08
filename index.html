@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstruCal Pro | Application d'étalonnage professionnelle</title>
+  <meta name="description" content="InstruCal Pro est une application mobile professionnelle pour certificats d'étalonnage, conversion 4-20 mA, photos, signature, PDF, historique et export." />
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f8fb;color:#102033}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #dce8f2}
+    .nav{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:900}
+    .logo span:first-child{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#0b73d9,#11b5c8);display:grid;place-items:center;color:white}
+    .logo strong{color:#0b73d9}
+    .links{display:flex;gap:24px;color:#425466;font-weight:700}
+    .hero{max-width:1180px;margin:auto;padding:78px 22px 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+    .badge{display:inline-flex;padding:9px 14px;border-radius:999px;background:#e9f6ff;color:#0769c7;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+    h1{font-size:58px;line-height:1.04;margin:18px 0 18px;color:#06172b}
+    .lead{font-size:20px;color:#516274;line-height:1.75;max-width:690px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0}
+    .btn{padding:15px 24px;border-radius:999px;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
+    .primary{background:#0b73d9;color:#fff;box-shadow:0 14px 30px rgba(11,115,217,.25)}
+    .secondary{background:#fff;color:#0b73d9;border:1px solid #cfe1f0}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chips span{background:#fff;border:1px solid #dce8f2;border-radius:999px;padding:9px 13px;font-weight:800;color:#405165}
+    .visual{background:linear-gradient(145deg,#0b73d9,#06172b);border-radius:38px;padding:30px;box-shadow:0 28px 70px rgba(6,23,43,.25)}
+    .phone{max-width:330px;margin:auto;background:#101828;border-radius:42px;padding:14px}
+    .screen{background:white;border-radius:30px;padding:22px;min-height:520px}
+    .appbar{background:linear-gradient(135deg,#0b73d9,#11b5c8);color:#fff;border-radius:18px;padding:16px;font-weight:900}
+    .status{display:inline-block;margin-top:14px;background:#e8fff5;color:#0a8a5a;border-radius:999px;padding:8px 12px;font-weight:900}
+    .metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+    .metrics div{background:#f3f8fc;border:1px solid #ddebf5;border-radius:18px;padding:15px}
+    .metrics b{display:block;color:#06172b}
+    .metrics span{color:#607284}
+    .sign{margin-top:26px;border:2px dashed #9ed5ff;border-radius:18px;padding:20px;text-align:center;color:#0b73d9;font-weight:900}
+    .section{max-width:1180px;margin:auto;padding:62px 22px}
+    .center{text-align:center}
+    h2{font-size:40px;line-height:1.15;margin:10px 0 35px;color:#06172b}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;border:1px solid #dce8f2;border-radius:26px;padding:28px;box-shadow:0 14px 35px rgba(16,32,51,.07)}
+    .icon{font-size:30px;width:58px;height:58px;border-radius:18px;background:#eef7ff;display:grid;place-items:center;margin-bottom:18px}
+    .card h3{margin:0 0 8px;font-size:22px}
+    .card p{color:#607284;line-height:1.7}
+    .screens{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
+    .screen-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mock{height:240px;border-radius:28px;background:linear-gradient(145deg,#ffffff,#dff3ff);border:1px solid #d5e8f7;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;color:#0b73d9;box-shadow:0 18px 45px rgba(16,32,51,.12)}
+    .mock small{display:block;margin-top:8px;color:#607284}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .price{font-size:28px;font-weight:900;color:#0b73d9!important}
+    .pro{border:2px solid #0b73d9;transform:translateY(-8px)}
+    .cta{max-width:980px;margin:60px auto;background:linear-gradient(135deg,#0b73d9,#06172b);color:white;border-radius:34px;padding:56px 26px;text-align:center;box-shadow:0 30px 70px rgba(6,23,43,.25)}
+    .cta h2{color:white;margin-bottom:12px}
+    .cta p{color:#d8edff;font-size:18px}
+    .cta .btn{background:white;color:#0b73d9}
+    footer{max-width:1180px;margin:auto;padding:28px 22px;border-top:1px solid #dce8f2;display:flex;justify-content:space-between;gap:16px;color:#607284}
+    footer div{display:flex;gap:16px}
+    @media(max-width:900px){
+      .links{display:none}
+      .hero,.screens{grid-template-columns:1fr}
+      h1{font-size:40px}
+      h2{font-size:30px}
+      .grid,.pricing{grid-template-columns:1fr}
+      .pro{transform:none}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a class="logo" href="#"><span>IC</span><span>InstruCal <strong>Pro</strong></span></a>
+    <div class="links">
+      <a href="#features">Fonctionnalités</a>
+      <a href="#screens">Captures</a>
+      <a href="#pricing">Offres</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
+<main>
+  <section class="hero">
+    <div>
+      <span class="badge">Calibration & Metrology Solutions</span>
+      <h1>Certificats d’étalonnage professionnels depuis votre téléphone.</h1>
+      <p class="lead">InstruCal Pro accompagne les techniciens, laboratoires et services maintenance pour convertir les signaux, saisir les mesures, calculer les écarts, ajouter photos et signature, puis générer un certificat PDF propre et traçable.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:oami.familly@gmail.com">Demander une démo</a>
+        <a class="btn secondary" href="#features">Voir les fonctions</a>
+      </div>
+      <div class="chips"><span>4-20 mA</span><span>RTD / Pt100</span><span>Thermocouple</span><span>PDF</span><span>Excel</span></div>
+    </div>
+    <div class="visual">
+      <div class="phone">
+        <div class="screen">
+          <div class="appbar">InstruCal Pro</div>
+          <h3>Certificat d’étalonnage</h3>
+          <span class="status">PT-101 • Conforme</span>
+          <div class="metrics">
+            <div><b>Erreur max</b><span>0.02 bar</span></div>
+            <div><b>Incertitude</b><span>0.04 bar</span></div>
+            <div><b>Hystérésis</b><span>0.02 bar</span></div>
+            <div><b>PDF</b><span>Généré</span></div>
+          </div>
+          <div class="sign">Signature validée ✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section center" id="features">
+    <span class="badge">Fonctionnalités</span>
+    <h2>Une application pensée pour le terrain.</h2>
+    <div class="grid">
+      <article class="card"><div class="icon">↔</div><h3>Conversion rapide</h3><p>Conversion 4-20 mA vers valeur process, RTD, thermocouples, unités et débit.</p></article>
+      <article class="card"><div class="icon">📋</div><h3>Certificat PDF</h3><p>Génération d’un certificat professionnel avec client, instrument, étalon, mesures et conclusion.</p></article>
+      <article class="card"><div class="icon">📷</div><h3>Photos & signature</h3><p>Ajout de photos de l’instrument, plaque signalétique, intervention, signature technicien ou client.</p></article>
+      <article class="card"><div class="icon">📊</div><h3>Calculs avancés</h3><p>Erreur, hystérésis, dérive, incertitude élargie et conformité selon critère défini.</p></article>
+      <article class="card"><div class="icon">🗂</div><h3>Historique</h3><p>Recherche par client, tag, date ou type d’instrument avec conservation des certificats.</p></article>
+      <article class="card"><div class="icon">⬇</div><h3>Export Excel</h3><p>Export des données pour suivi qualité, KPI, traçabilité et reporting maintenance.</p></article>
+    </div>
+  </section>
+
+  <section class="section screens" id="screens">
+    <div>
+      <span class="badge">Captures d’écran</span>
+      <h2>Interface claire pour techniciens et responsables qualité.</h2>
+      <p class="lead">Tu peux ajouter ensuite les vraies captures de l’application : accueil, conversion, certificat, photos, signature, PDF et historique.</p>
+    </div>
+    <div class="screen-grid">
+      <div class="mock">Accueil<small>Dashboard application</small></div>
+      <div class="mock">Conversion<small>4-20 mA / RTD</small></div>
+      <div class="mock">Certificat<small>Mesures & calculs</small></div>
+      <div class="mock">PDF<small>Rapport final</small></div>
+    </div>
+  </section>
+
+  <section class="section center" id="pricing">
+    <span class="badge">Offres</span>
+    <h2>Choisissez la version adaptée à votre besoin.</h2>
+    <div class="pricing">
+      <article class="card"><h3>Démo</h3><p class="price">Essai</p><p>Pour tester les fonctions principales avant adoption.</p></article>
+      <article class="card pro"><h3>Pro</h3><p class="price">Technicien</p><p>Certificats PDF, photos, signature, historique et export.</p></article>
+      <article class="card"><h3>Entreprise</h3><p class="price">Sur demande</p><p>Multi-utilisateurs, domaines d’étalonnage, personnalisation et calculs avancés.</p></article>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <h2>Prêt à présenter InstruCal Pro aux clients ?</h2>
+    <p>Contact pour démo, version Pro, version Entreprise ou personnalisation.</p>
+    <a class="btn" href="mailto:oami.familly@gmail.com">oami.familly@gmail.com</a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 InstruCal Pro. Calibration & Metrology Solutions.</p>
+  <div><a href="privacy.html">Confidentialité</a><a href="terms.html">Conditions</a></div>
+</footer>
+</body>
+</html>
