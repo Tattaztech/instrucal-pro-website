@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstruCal Pro | Calibration & Metrology Solutions</title>
+  <meta name="description" content="InstruCal Pro est une application professionnelle pour certificats d'étalonnage, conversion 4-20 mA, photos, signature, PDF, historique et export Excel." />
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#071827}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid #e6eee9}
+    .nav{max-width:1200px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:22px}
+    .brand img{width:46px;height:46px;border-radius:12px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+    .brand small{display:block;font-size:11px;color:#475569;font-weight:700}
+    .brand strong{color:#00553f}
+    .links{display:flex;gap:24px;font-weight:800;color:#111827}
+    .demo{background:#00553f;color:#fff;padding:12px 18px;border-radius:999px;box-shadow:0 10px 22px rgba(0,85,63,.22)}
+    .hero{max-width:1200px;margin:auto;padding:70px 22px 60px;display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center}
+    h1{font-size:62px;line-height:1.02;margin:10px 0 12px;color:#071827}
+    .green{color:#00553f}
+    .sub{font-size:26px;color:#00553f;font-weight:900;margin-bottom:22px}
+    .lead{font-size:19px;color:#334155;line-height:1.7;max-width:610px}
+    .buttons{display:flex;gap:14px;margin:28px 0;flex-wrap:wrap}
+    .btn{border-radius:999px;padding:14px 22px;font-weight:900;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary{background:#00553f;color:white;box-shadow:0 12px 26px rgba(0,85,63,.24)}
+    .btn-secondary{border:1px solid #a9c8bd;color:#00553f;background:white}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chips span{border:1px solid #d8e6e0;border-radius:999px;padding:9px 13px;font-weight:800;color:#0b3d31;background:white}
+    .hero-visual{position:relative}
+    .hero-visual:before{content:"";position:absolute;right:0;bottom:8%;width:80%;height:46%;background:#00553f;border-top:10px solid #f3b000;border-radius:240px 0 0 0;z-index:0}
+    .hero-visual img{position:relative;z-index:1;width:100%;border-radius:30px;box-shadow:0 26px 70px rgba(0,0,0,.16)}
+    .section{max-width:1200px;margin:auto;padding:58px 22px}
+    .center{text-align:center}
+    h2{font-size:34px;margin:0 0 10px;color:#00553f}
+    .section-desc{color:#334155;margin-bottom:28px;font-size:17px}
+    .features{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .card{background:#fff;border:1px solid #dde8e3;border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+    .card .icon{font-size:34px;color:#00553f;margin-bottom:12px}
+    .card h3{font-size:16px;color:#00553f;margin:0 0 8px}
+    .card p{font-size:14px;color:#334155;line-height:1.55;margin:0}
+    .screens-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+    .shot{background:#fff;border:1px solid #dde8e3;border-radius:22px;padding:12px;box-shadow:0 14px 36px rgba(15,23,42,.09)}
+    .shot img{width:100%;border-radius:16px;display:block}
+    .shot b{display:block;text-align:center;color:#00553f;margin-top:10px}
+    .wide{grid-column:span 4}
+    .wide img{max-height:760px;object-fit:contain;background:white}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .price-card{padding:28px;border-radius:24px;background:white;border:1px solid #dce8e2;box-shadow:0 14px 35px rgba(15,23,42,.08)}
+    .price-card h3{font-size:24px;margin:0;color:#071827}
+    .price-card .price{font-size:22px;color:#00553f;font-weight:900}
+    .price-card li{margin:9px 0;color:#334155}
+    .pro{border:2px solid #00553f;transform:translateY(-8px)}
+    .cta{max-width:1120px;margin:50px auto;background:linear-gradient(135deg,#00553f,#003728);color:white;border-radius:24px;padding:34px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .cta h2{color:white;margin-bottom:5px}
+    .cta p{margin:0;color:#dff7ed}
+    .cta .btn{background:white;color:#00553f}
+    footer{background:#071827;color:white;margin-top:30px}
+    .foot{max-width:1200px;margin:auto;padding:26px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .foot img{width:42px;height:42px;border-radius:10px;vertical-align:middle;margin-right:10px}
+    .foot a{margin-left:18px;color:#dbeafe}
+    @media(max-width:900px){
+      .links{display:none}
+      .hero{grid-template-columns:1fr;padding-top:40px}
+      h1{font-size:42px}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .screens-grid{grid-template-columns:1fr}
+      .wide{grid-column:span 1}
+      .pricing{grid-template-columns:1fr}
+      .pro{transform:none}
+      .cta,.foot{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a class="brand" href="#">
+      <img src="images/logo.png" alt="Logo InstruCal Pro">
+      <span>InstruCal <strong>Pro</strong><small>Calibration & Metrology Solutions</small></span>
+    </a>
+    <div class="links">
+      <a href="#features">Fonctionnalités</a>
+      <a href="#screens">Captures</a>
+      <a href="#pricing">Offres</a>
+      <a href="#contact" class="demo">Demander une démo</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>InstruCal <span class="green">Pro</span></h1>
+      <div class="sub">Calibration & Metrology Solutions</div>
+      <p class="lead">Générez vos certificats d’étalonnage professionnels depuis mobile. InstruCal Pro aide les techniciens, laboratoires et services maintenance à convertir les signaux, créer des certificats PDF, ajouter photos, signature, historique et export Excel.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="mailto:oami.familly@gmail.com">✉ Demander une démo</a>
+        <a class="btn btn-secondary" href="#screens">Voir les captures ↓</a>
+      </div>
+      <div class="chips"><span>4-20 mA</span><span>RTD / Pt100</span><span>Thermocouple</span><span>PDF</span><span>Excel</span></div>
+    </div>
+    <div class="hero-visual">
+      <img src="images/screens-global.png" alt="Captures application InstruCal Pro">
+    </div>
+  </section>
+
+  <section class="section center" id="features">
+    <h2>Fonctionnalités principales</h2>
+    <p class="section-desc">Tout pour une intervention d’étalonnage bien structurée.</p>
+    <div class="features">
+      <article class="card"><div class="icon">↔</div><h3>Conversion rapide</h3><p>Conversion 4-20 mA ↔ PV, RTD, thermocouples, unités et débit.</p></article>
+      <article class="card"><div class="icon">📋</div><h3>Certificat PDF</h3><p>Création de certificats professionnels avec instrument, étalon, mesures et conclusion.</p></article>
+      <article class="card"><div class="icon">📷</div><h3>Photos & signature</h3><p>Ajout de photos instrument, plaque signalétique, montage, résultat et signature technicien.</p></article>
+      <article class="card"><div class="icon">📈</div><h3>Calculs avancés</h3><p>Erreur, hystérésis, incertitude élargie, conformité et résultat rapide.</p></article>
+      <article class="card"><div class="icon">🗂</div><h3>Historique</h3><p>Recherche par tag, client, date et conservation des certificats générés.</p></article>
+      <article class="card"><div class="icon">📄</div><h3>Export Excel</h3><p>Export des certificats et données pour suivi, KPI et traçabilité.</p></article>
+    </div>
+  </section>
+
+  <section class="section center" id="screens">
+    <h2>Captures d’écran</h2>
+    <p class="section-desc">Interface simple pour techniciens et responsables qualité.</p>
+    <div class="screens-grid">
+      <div class="shot"><img src="images/creation-certificat.png" alt="Création du certificat"><b>Création du certificat</b></div>
+      <div class="shot"><img src="images/mesures-calculs.png" alt="Mesures et calculs"><b>Mesures & calculs</b></div>
+      <div class="shot"><img src="images/pdf-genere.png" alt="PDF généré"><b>PDF généré</b></div>
+      <div class="shot"><img src="images/logo.png" alt="Logo application"><b>Logo application</b></div>
+      <div class="shot wide"><img src="images/screens-global.png" alt="Présentation complète des écrans"><b>Présentation complète des écrans InstruCal Pro</b></div>
+    </div>
+  </section>
+
+  <section class="section center" id="pricing">
+    <h2>Offres</h2>
+    <p class="section-desc">Une solution adaptée au terrain.</p>
+    <div class="pricing">
+      <article class="price-card"><h3>Démo</h3><p class="price">Essai</p><p>Pour tester l’application avec fonctions limitées.</p><ul><li>Conversion</li><li>Création certificat</li><li>Export PDF</li></ul></article>
+      <article class="price-card pro"><h3>Pro</h3><p class="price">Technicien</p><p>Certificats PDF, photos, signature, historique et export.</p><ul><li>Certificats professionnels</li><li>Photos & signature</li><li>Calculs avancés</li><li>Historique & recherche</li></ul></article>
+      <article class="price-card"><h3>Entreprise</h3><p class="price">Sur demande</p><p>Multi-utilisateurs, domaines d’étalonnage, calculs avancés et personnalisation.</p><ul><li>Multi-utilisateurs</li><li>Domaines d’étalonnage</li><li>Support prioritaire</li></ul></article>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div>
+      <h2>Prêt à lancer InstruCal Pro ?</h2>
+      <p>Contactez-nous pour une démo, une version entreprise ou une personnalisation.</p>
+    </div>
+    <a class="btn" href="mailto:oami.familly@gmail.com">oami.familly@gmail.com</a>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><img src="images/logo.png" alt="">InstruCal Pro © 2026</div>
+    <div><a href="privacy.html">Confidentialité</a><a href="terms.html">Conditions</a></div>
+  </div>
+</footer>
+</body>
+</html>
 
