@@ -11,8 +11,8 @@ export const modules = [
 ];
 
 export const documents = [
-  {id:"quick",title:["Certificat d’étalonnage rapide","Quick calibration certificate"],desc:["Transmetteur de pression 4–20 mA, points de mesure et écarts.","4–20 mA pressure transmitter, measurement points and errors."]},
-  {id:"complete",title:["Certificat d’étalonnage complet","Full calibration certificate"],desc:["Instrument, étalon de référence, mesures et conditions de l’intervention.","Instrument, reference standard, readings and test conditions."]},
+  {id:"quick",export:"quick-app-fr",title:["Rapport d’étalonnage simple","Quick calibration report"],desc:["Transmetteur de pression 4–20 mA, avec mesures, écarts et tolérance.","4–20 mA pressure transmitter with readings, errors and tolerance."]},
+  {id:"complete",export:"complete-app-fr",title:["Certificat d’étalonnage complet","Full calibration certificate"],desc:["Transmetteur de température, étalon de référence et mesures en montée et en descente.","Temperature transmitter, reference standard and increasing and decreasing readings."]},
   {id:"valve",title:["Rapport de contrôle de vanne","Valve test report"],desc:["Vanne de régulation, signal de commande et course mesurée.","Control valve, command signal and measured travel."]},
   {id:"safety",title:["Rapport de contrôle de soupape","Safety valve test report"],desc:["Pressions d’ouverture et de refermeture sur trois essais.","Opening and reseating pressures across three tests."]}
 ];
@@ -22,7 +22,7 @@ export const faq = [
   [["Que permet l’offre Free ?","What does Free include?"],["Les convertisseurs et les étalonnages rapides locaux sont illimités. Free comprend 5 PDF rapides, 1 certificat complet, 1 étalonnage de vanne et 1 tarage de soupape.","Converters and local quick calibrations are unlimited. Free includes 5 quick PDFs, 1 full certificate, 1 valve calibration and 1 safety valve test."]],
   [["Où consulter le prix et l’essai Pro ?","Where can I check Pro pricing and trial eligibility?"],["Ouvrez l’écran Mon plan dans l’application pour consulter l’offre affichée par Google Play. La fiche annonce un essai de 7 jours. Google Play affiche l’éligibilité, le tarif et les conditions applicables à votre compte avant confirmation.","Open My Plan in the app to see the offer shown by Google Play. The listing announces a 7-day trial. Google Play shows eligibility, pricing and terms for your account before confirmation."]],
   [["Où sont conservés les certificats ?","Where are certificates stored?"],["L’historique est conservé sur l’appareil. Vous pouvez partager les PDF et exporter les données du certificat complet vers Excel depuis l’application.","History is stored on the device. You can share PDFs and export full certificate data to Excel from the app."]],
-  [["Les exemples PDF sont-ils des certificats accrédités ?","Are the sample PDFs accredited certificates?"],["Les exemples illustrent le contenu des livrables avec des mesures fictives. Toute revendication d’accréditation dépend de l’organisme qui effectue l’étalonnage et de sa portée.","The samples illustrate report content using fictional measurements. Any accreditation claim depends on the organisation performing the calibration and its accreditation scope."]]
+  [["Les PDF présentés sont-ils des certificats accrédités ?","Are the PDFs shown accredited certificates?"],["Les deux exports anonymisés montrent le rendu de l’application. Les rapports de vanne et de soupape utilisent des données fictives. Toute revendication d’accréditation dépend de l’organisme qui effectue l’étalonnage et de sa portée.","The two anonymised exports show the app’s output. The valve and safety valve reports use fictional data. Any accreditation claim depends on the organisation performing the calibration and its accreditation scope."]]
 ];
 
 export const settings = {

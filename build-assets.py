@@ -33,33 +33,7 @@ def block(pdf, x, y, width, height, color):
     pdf.rect(x, y, width, height, fill=1, stroke=0)
 
 
-calibration = [("0", "0.00", "0.00", "0.00"), ("25", "2.50", "2.49", "-0.01"),
-               ("50", "5.00", "5.01", "+0.01"), ("75", "7.50", "7.52", "+0.02"),
-               ("100", "10.00", "10.01", "+0.01")]
 reports = {
-    "quick": (
-        ("Certificat d'étalonnage rapide", "Quick calibration certificate"),
-        ("Transmetteur de pression PT-101 | 0-10 bar | 4-20 mA",
-         "Pressure transmitter PT-101 | 0-10 bar | 4-20 mA"),
-        ("Référence fictive PR-01", "Fictional reference PR-01"),
-        (("Point (%)", "Référence (bar)", "Mesure (bar)", "Écart (bar)"),
-         ("Point (%)", "Reference (bar)", "Reading (bar)", "Error (bar)")),
-        calibration, ("Écart absolu maximal : 0,02 bar.", "Maximum absolute error: 0.02 bar."),
-    ),
-    "complete": (
-        ("Certificat d'étalonnage complet", "Full calibration certificate"),
-        ("Transmetteur de pression PT-101 | 0-10 bar | 4-20 mA",
-         "Pressure transmitter PT-101 | 0-10 bar | 4-20 mA"),
-        ("Étalon fictif PR-01 | Conditions : 22 °C, 48 % HR",
-         "Fictional standard PR-01 | Conditions: 22 °C, 48% RH"),
-        (("Point (%)", "Référence (bar)", "Montée (bar)", "Descente (bar)"),
-         ("Point (%)", "Reference (bar)", "Increasing (bar)", "Decreasing (bar)")),
-        [("0", "0.00", "0.00", "0.00"), ("25", "2.50", "2.49", "2.50"),
-         ("50", "5.00", "5.01", "5.02"), ("75", "7.50", "7.52", "7.51"),
-         ("100", "10.00", "10.01", "10.01")],
-        ("Incertitude élargie illustrative : 0,04 bar (k = 2).",
-         "Illustrative expanded uncertainty: 0.04 bar (k = 2)."),
-    ),
     "valve": (
         ("Rapport de contrôle de vanne", "Valve test report"),
         ("Vanne de régulation FV-202 | Positionneur 4-20 mA",
