@@ -97,6 +97,10 @@ function page(lang, loc) {
     <article class="card"><h3>${t("Retrouvez le résultat","Retrieve the result")}</h3><p>${t("Recherchez un certificat dans l’historique local et partagez le PDF avec le client ou le service qualité.","Find a certificate in local history and share its PDF with the customer or quality team.")}</p></article>
   </div>
 </div></section>
+<section class="section" id="photo-gallery" hidden><div class="wrap">
+  <div class="intro"><h2 id="photo-gallery-title">${t("Photos et réalisations","Photos and projects")}</h2></div>
+  <div class="cards"></div>
+</div></section>
 <section class="section" id="features"><div class="wrap">
   <div class="intro"><h2>${t("Fonctionnalités pour les interventions de terrain","Features for field interventions")}</h2><p class="lead">${t("Pour les techniciens instrumentation, prestataires de métrologie, laboratoires et équipes de maintenance.","For instrumentation technicians, metrology service providers, laboratories and maintenance teams.")}</p></div>
   <div class="cards modules">${modules.map((m,i)=>{

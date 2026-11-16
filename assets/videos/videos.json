@@ -1,19 +1,21 @@
-[
-  {
-    "file": "simulation-vanne-pid.mp4",
-    "poster": "simulation-vanne-pid.webp",
-    "portrait": true,
-    "modules": [
-      "pid",
-      "valve"
-    ],
-    "fr": {
-      "title": "Simulation de vanne avec régulation PID",
-      "description": "Réglez la consigne et les paramètres de régulation, lancez la simulation et observez la courbe de réponse. Interface en français."
-    },
-    "en": {
-      "title": "Valve simulation with PID control",
-      "description": "Set the target and controller parameters, run the simulation and view the response curve. French interface."
+{
+  "videos": [
+    {
+      "file": "/assets/videos/simulation-vanne-pid.mp4",
+      "poster": "/assets/videos/simulation-vanne-pid.webp",
+      "portrait": true,
+      "modules": [
+        "pid",
+        "valve"
+      ],
+      "fr": {
+        "title": "Simulation de vanne avec régulation PID",
+        "description": "Réglez la consigne et les paramètres de régulation, lancez la simulation et observez la courbe de réponse. Interface en français."
+      },
+      "en": {
+        "title": "Valve simulation with PID control",
+        "description": "Set the target and controller parameters, run the simulation and view the response curve. French interface."
+      }
     }
-  }
-]
+  ]
+}

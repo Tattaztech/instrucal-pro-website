@@ -4,38 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Gérer les vidéos | InstruCal Pro</title>
+  <title>Gérer le site | InstruCal Pro</title>
   <link rel="stylesheet" href="assets/site.css">
-  <script type="module" src="assets/edit-videos.js"></script>
 </head>
 <body>
   <header><div class="wrap header"><a class="brand" href="./">InstruCal Pro</a></div></header>
   <main class="wrap section">
-    <h1>Gérer les vidéos</h1>
-    <p class="lead">Ajoutez une vidéo, modifiez son texte ou choisissez les modules où elle apparaît.</p>
+    <h1>Gérer mon site</h1>
+    <p class="lead">Modifiez l’accueil, choisissez un thème et ajoutez des photos ou des vidéos depuis Pages CMS.</p>
     <ol>
-      <li>Pour une nouvelle vidéo, déposez le MP4 et, si vous en avez une, sa vignette WebP dans le <a href="https://github.com/Tattaztech/instrucal-pro-website/upload/main/assets/videos">dossier des vidéos sur GitHub</a>.</li>
-      <li>Renseignez le formulaire, puis téléchargez votre fichier <code>videos.json</code>.</li>
-      <li><a href="https://github.com/Tattaztech/instrucal-pro-website/upload/main/assets/videos">Déposez ce fichier sur GitHub</a> avec son nom exact, <code>videos.json</code>, puis validez le commit sur <code>main</code>. GitHub Pages actualisera le site.</li>
+      <li>Connectez-vous avec le compte GitHub propriétaire du dépôt.</li>
+      <li>Lors de la première connexion, autorisez Pages CMS sur le seul dépôt <strong>instrucal-pro-website</strong>.</li>
+      <li>Ouvrez <strong>Accueil et thème</strong> ou <strong>Vidéos</strong>, puis enregistrez vos modifications. Les changements enregistrés sur <strong>main</strong> deviennent publics après le déploiement GitHub Pages.</li>
     </ol>
-    <form id="video-editor" class="card video-editor" hidden>
-      <label>Vidéo à modifier <select id="video-choice"></select></label>
-      <label>Nom du fichier MP4 <input name="file" required placeholder="simulation-vanne.mp4"></label>
-      <label>Vignette WebP facultative <input name="poster" placeholder="simulation-vanne.webp"></label>
-      <label><input type="checkbox" name="portrait"> Vidéo verticale</label>
-      <fieldset><legend>Modules</legend><div id="video-modules"></div></fieldset>
-      <label>Titre en français <input name="frTitle" required></label>
-      <label>Description en français <textarea name="frDescription" rows="2"></textarea></label>
-      <label>Titre en anglais <input name="enTitle" required></label>
-      <label>Description en anglais <textarea name="enDescription" rows="2"></textarea></label>
-      <div class="actions">
-        <button class="button primary" type="submit">Enregistrer dans le brouillon</button>
-        <button class="button outline" id="video-remove" type="button">Retirer du catalogue</button>
-        <button class="button outline" id="video-export" type="button">Télécharger videos.json</button>
-      </div>
-    </form>
-    <p id="video-status" role="status">Chargement du catalogue…</p>
-    <noscript>Activez JavaScript pour utiliser le formulaire.</noscript>
+    <a class="button primary" href="https://app.pagescms.org/">Ouvrir Pages CMS</a>
   </main>
 </body>
 </html>

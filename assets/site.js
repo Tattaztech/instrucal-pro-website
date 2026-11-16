@@ -1,4 +1,7 @@
 import {readCatalog, sourceUrl} from './video-catalog.js';
+import {applySiteContent} from './site-content.js';
+
+applySiteContent().catch(() => {});
 
 const root = document.documentElement;
 const menu = document.querySelector('[aria-controls="nav"]');
@@ -79,7 +82,7 @@ function renderVideos(module) {
     player.src = sourceUrl(video.file);
     if (video.poster) player.poster = sourceUrl(video.poster);
     if (video.portrait) player.classList.add('portrait');
-    caption.textContent = copy.description;
+    caption.textContent = copy.description ?? '';
     article.append(heading, player, caption);
     return article;
   }));

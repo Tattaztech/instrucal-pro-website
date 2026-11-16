@@ -4,25 +4,31 @@ export const moduleNames = new Map([
   ['pid', 'Simulation de vanne P, PI et PID']
 ]);
 
+export function mediaUrl(value, folder, extension) {
+  if (typeof value !== 'string') return '';
+  const prefix = '/assets/' + folder + '/';
+  const name = value.startsWith(prefix) ? value.slice(prefix.length) : value;
+  if (!/^[a-z0-9][a-z0-9_.-]*$/i.test(name) || !extension.test(name)) return '';
+  return new URL('./' + folder + '/' + name, import.meta.url).href;
+}
+
 export function validVideo(video) {
-  return video && typeof video.file === 'string' &&
-    /^[a-z0-9][a-z0-9_-]*\.mp4$/i.test(video.file) &&
-    (video.poster === undefined || (typeof video.poster === 'string' &&
-      /^[a-z0-9][a-z0-9_-]*\.webp$/i.test(video.poster))) &&
+  return video && mediaUrl(video.file, 'videos', /\.mp4$/i) &&
+    (!video.poster || mediaUrl(video.poster, 'videos', /\.webp$/i)) &&
     Array.isArray(video.modules) && video.modules.length > 0 &&
     video.modules.every(id => moduleNames.has(id)) &&
     ['fr', 'en'].every(lang => typeof video[lang]?.title === 'string' &&
-      video[lang].title.trim() && typeof video[lang].description === 'string');
+      video[lang].title.trim() && (video[lang].description == null || typeof video[lang].description === 'string'));
 }
 
 export async function readCatalog() {
   const response = await fetch(catalogUrl, {cache: 'no-cache'});
   if (!response.ok) throw new Error('Video catalog unavailable');
-  const videos = await response.json();
-  if (!Array.isArray(videos) || !videos.every(validVideo)) throw new Error('Invalid video catalog');
-  return videos;
+  const {videos = []} = await response.json();
+  if (!Array.isArray(videos)) throw new Error('Invalid video catalog');
+  return videos.filter(validVideo);
 }
 
 export function sourceUrl(file) {
-  return new URL(file, catalogUrl).href;
+  return mediaUrl(file, 'videos', /\.(?:mp4|webp)$/i);
 }

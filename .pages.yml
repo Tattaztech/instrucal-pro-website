@@ -1,0 +1,168 @@
+media:
+  - name: photos
+    label: Photos du site
+    input: assets/content/photos
+    output: /assets/content/photos
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+  - name: videos
+    label: Fichiers vidéo
+    input: assets/videos
+    output: /assets/videos
+    categories: [video, image]
+    extensions: [mp4, webp]
+    rename: safe
+
+content:
+  - name: homepage
+    label: Accueil et thème
+    type: file
+    path: assets/content/site.json
+    fields:
+      - name: theme
+        label: Thème de couleurs
+        type: select
+        required: true
+        options:
+          values:
+            - {name: navy, label: Bleu nuit et turquoise}
+            - {name: teal, label: Vert pétrole et menthe}
+            - {name: slate, label: Ardoise et bleu ciel}
+      - name: photo
+        label: Photo de couverture (facultative)
+        type: image
+        options:
+          media: photos
+      - name: fr
+        label: Français
+        type: object
+        fields:
+          - name: title
+            label: Titre
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+          - name: photoAlt
+            label: Texte alternatif de la photo
+            type: string
+          - name: galleryTitle
+            label: Titre de la galerie
+            type: string
+      - name: en
+        label: Anglais
+        type: object
+        fields:
+          - name: title
+            label: Titre
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+          - name: photoAlt
+            label: Texte alternatif de la photo
+            type: string
+          - name: galleryTitle
+            label: Titre de la galerie
+            type: string
+      - name: items
+        label: Photos et blocs de texte
+        type: object
+        list: true
+        fields:
+          - name: photo
+            label: Photo (facultative)
+            type: image
+            options:
+              media: photos
+          - name: fr
+            label: Français
+            type: object
+            fields:
+              - name: title
+                label: Titre
+                type: string
+              - name: description
+                label: Description
+                type: text
+              - name: photoAlt
+                label: Texte alternatif de la photo
+                type: string
+          - name: en
+            label: Anglais
+            type: object
+            fields:
+              - name: title
+                label: Titre
+                type: string
+              - name: description
+                label: Description
+                type: text
+              - name: photoAlt
+                label: Texte alternatif de la photo
+                type: string
+  - name: video_catalog
+    label: Vidéos
+    type: file
+    path: assets/videos/videos.json
+    fields:
+      - name: videos
+        label: Vidéos par module
+        type: object
+        list: true
+        fields:
+          - name: file
+            label: Fichier vidéo MP4
+            type: file
+            required: true
+            options:
+              media: videos
+              extensions: [mp4]
+          - name: poster
+            label: Vignette WebP (facultative)
+            type: image
+            options:
+              media: videos
+              extensions: [webp]
+          - name: portrait
+            label: Vidéo verticale
+            type: boolean
+          - name: modules
+            label: Modules
+            type: select
+            required: true
+            options:
+              multiple: true
+              min: 1
+              values:
+                - {name: pid, label: "Simulation de vanne P, PI et PID"}
+                - {name: valve, label: Contrôle de vanne et de positionneur}
+          - name: fr
+            label: Français
+            type: object
+            fields:
+              - name: title
+                label: Titre
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+                required: true
+          - name: en
+            label: Anglais
+            type: object
+            fields:
+              - name: title
+                label: Titre
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+                required: true

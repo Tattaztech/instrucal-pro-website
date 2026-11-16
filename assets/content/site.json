@@ -1,0 +1,16 @@
+{
+  "theme": "navy",
+  "fr": {
+    "title": "L’instrumentation et l’étalonnage dans votre poche",
+    "description": "Convertissez des signaux, documentez vos contrôles et partagez vos certificats PDF avec une application Android conçue pour les professionnels de terrain.",
+    "photoAlt": "",
+    "galleryTitle": "Photos et réalisations"
+  },
+  "en": {
+    "title": "Instrumentation and calibration in your pocket",
+    "description": "Convert signals, document field tests and share PDF calibration certificates with an Android app built for industrial professionals.",
+    "photoAlt": "",
+    "galleryTitle": "Photos and projects"
+  },
+  "items": []
+}
