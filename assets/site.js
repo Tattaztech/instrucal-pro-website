@@ -1,3 +1,5 @@
+import {readCatalog, sourceUrl} from './video-catalog.js';
+
 const root = document.documentElement;
 const menu = document.querySelector('[aria-controls="nav"]');
 const nav = document.querySelector('#nav');
@@ -32,6 +34,9 @@ const zoom = document.querySelector('#demo-zoom');
 const dialog = document.querySelector('#demo-dialog');
 const large = dialog.querySelector('img');
 const controls = document.querySelector('.demo-controls');
+const phone = shot.closest('.phone');
+const videoList = document.querySelector('#demo-videos');
+let videos = [];
 controls.hidden = false;
 options.forEach(button => {button.hidden = false;});
 let selected = data.modules.findIndex(module => module.shots.length);
@@ -58,6 +63,30 @@ const sections = new IntersectionObserver(entries => {
 });
 document.querySelectorAll('main > section[id]').forEach(section => sections.observe(section));
 
+function renderVideos(module) {
+  const entries = videos.filter(video => video.modules.includes(module.id));
+  videoList.replaceChildren(...entries.map(video => {
+    const article = document.createElement('article');
+    const heading = document.createElement('h4');
+    const player = document.createElement('video');
+    const caption = document.createElement('p');
+    const copy = video[root.lang];
+    heading.textContent = copy.title;
+    player.setAttribute('aria-label', copy.title);
+    player.controls = true;
+    player.playsInline = true;
+    player.preload = 'none';
+    player.src = sourceUrl(video.file);
+    if (video.poster) player.poster = sourceUrl(video.poster);
+    if (video.portrait) player.classList.add('portrait');
+    caption.textContent = copy.description;
+    article.append(heading, player, caption);
+    return article;
+  }));
+  videoList.hidden = entries.length === 0;
+  phone.hidden = entries.length > 0 && module.shots.length === 0;
+}
+
 function render() {
   const module = data.modules[selected];
   const image = module.shots[frame];
@@ -74,10 +103,12 @@ function render() {
   prev.disabled = frame === 0;
   next.disabled = frame + 1 >= module.shots.length;
   zoom.disabled = !image;
+  controls.hidden = videoList.childElementCount > 0 && !image;
 }
 function selectModule(index) {
   selected = index;
   frame = 0;
+  renderVideos(data.modules[index]);
   render();
   publish('module_view', data.modules[index].id);
 }
@@ -98,6 +129,11 @@ document.addEventListener('click', event => {
   if (element) publish(element.dataset.event, element.dataset.section);
 });
 render();
+readCatalog().then(entries => {
+  videos = entries;
+  renderVideos(data.modules[selected]);
+  render();
+}).catch(() => {});
 const optIn = document.querySelector('#analytics-opt-in');
 if (optIn) {
   try { optIn.checked = localStorage.getItem('instrucal-consent') === 'yes'; } catch {}

@@ -4,6 +4,10 @@ Site statique sur GitHub Pages. La production actuelle provient de `main`, dossi
 
 ## Modifier la page
 
+### Gérer les vidéos
+
+Ouvrir `edit-videos.html` depuis le site. Le formulaire permet de modifier les titres et descriptions FR/EN, d’ajouter ou de retirer une vidéo et de choisir entre Simulation PID et Contrôle de vanne et de positionneur. Déposer d’abord le MP4 dans `assets/videos/` sur GitHub, puis remplacer `assets/videos/videos.json` par le fichier téléchargé depuis le formulaire. Le compte GitHub doit avoir accès en écriture au dépôt. Aucun changement de HTML ni nouvelle génération des pages n’est nécessaire.
+
 - `site-content.mjs` contient les modules, les documents, la FAQ et la configuration des deux langues. Les tarifs restent sur `null` tant que le montant et la devise n’ont pas été validés par marché.
 - `build-site.mjs` contient le gabarit bilingue, la table `shotData` pour les captures et la génération de `index.html`, `en/index.html`, `robots.txt` et `sitemap.xml`.
 - Exécuter `node build-site.mjs` après modification, puis versionner les pages générées. GitHub Pages sert les fichiers statiques directement. Aucun runtime Node n'est nécessaire en production.

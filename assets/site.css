@@ -70,6 +70,16 @@ h3{font-size:1.2rem;line-height:1.26}
 .demo-stage{display:grid;justify-items:center;gap:10px;border-radius:var(--radius);background:#e0eef3;padding:16px}
 .demo-controls{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
 .demo-controls .control{padding-inline:12px}
+.demo-videos{width:100%;min-width:0}
+.demo-videos article+article{margin-top:20px}
+.demo-videos h4{margin:0 0 8px;font-size:1rem}
+.demo-videos video{display:block;width:100%;max-height:75vh;aspect-ratio:16/9;background:#081a30;border-radius:10px}
+.demo-videos video.portrait{width:min(100%,300px,34vh);margin-inline:auto;aspect-ratio:640/1406}
+.demo-videos p{margin-top:8px;color:var(--muted)}
+.video-editor{display:grid;gap:12px;max-width:48rem}
+.video-editor input:not([type=checkbox]),.video-editor select,.video-editor textarea{display:block;width:100%;font:inherit;padding:6px;border:1px solid #8daebc;border-radius:6px}
+.video-editor fieldset{border:1px solid #8daebc}
+.video-editor fieldset label{display:block}
 .screen-empty{min-height:150px;display:grid;place-items:center;text-align:center;padding:16px}
 dialog{border:0;border-radius:14px;padding:12px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 22px);color:var(--ink)}
 dialog::backdrop{background:#061625dd}

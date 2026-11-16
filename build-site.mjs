@@ -101,7 +101,7 @@ function page(lang, loc) {
   <div class="intro"><h2>${t("Fonctionnalités pour les interventions de terrain","Features for field interventions")}</h2><p class="lead">${t("Pour les techniciens instrumentation, prestataires de métrologie, laboratoires et équipes de maintenance.","For instrumentation technicians, metrology service providers, laboratories and maintenance teams.")}</p></div>
   <div class="cards modules">${modules.map((m,i)=>{
     const screen=shotData[m.id]?.[0];
-    return `<article class="card" id="module-${m.id}"><span class="module-marker" aria-hidden="true">${icons[i]}</span><h3>${m.name[loc]}</h3><p>${m.desc[loc]}</p>${screen ? `<a href="#screens" data-demo-link="${m.id}" aria-label="${safe(t("Voir la démonstration de ","See the demo for ")+m.name[loc])}">${screenshot(screen[0],screen[loc+1]).replace("<img ","<img class=\"module-shot\" ")}</a>` : ""}<p class="action">${m.actions[loc]}</p><p class="plan">${m.plan[loc]}</p>${play(`module-${m.id}`,t("Découvrir sur Google Play","Explore on Google Play"),"module-link")}</article>`;
+    return `<article class="card" id="module-${m.id}"><span class="module-marker" aria-hidden="true">${icons[i]}</span><h3>${m.name[loc]}</h3><p>${m.desc[loc]}</p>${screen ? `<a href="#screens" data-demo-link="${m.id}" aria-label="${safe(t("Voir la démonstration de ","See the demo for ")+m.name[loc])}">${screenshot(screen[0],screen[loc+1]).replace("<img ","<img class=\"module-shot\" ")}</a>` : ""}${["pid","valve"].includes(m.id) ? `<a class="module-link" href="#screens" data-demo-link="${m.id}">${t("Voir la vidéo de simulation","Watch the simulation video")}</a>` : ""}<p class="action">${m.actions[loc]}</p><p class="plan">${m.plan[loc]}</p>${play(`module-${m.id}`,t("Découvrir sur Google Play","Explore on Google Play"),"module-link")}</article>`;
   }).join("")}</div>
 </div></section>
 <section class="section wash" id="screens"><div class="wrap">
@@ -113,6 +113,7 @@ function page(lang, loc) {
       <div class="actions">${play("demo")}</div>
     </div>
     <div class="demo-stage">
+      <div id="demo-videos" class="demo-videos" hidden></div>
       <div class="phone"><img id="demo-shot" src="${first.src}" alt="${safe(first.alt)}" width="700" height="1428" loading="lazy"><p id="demo-empty" class="screen-empty" hidden>${t("Capture officielle à ajouter pour ce module.","An official screenshot is still needed for this module.")}</p></div>
       <div class="demo-controls" hidden><button class="control" id="demo-prev" type="button">${t("Précédent","Previous")}</button><span id="demo-count" aria-live="polite"></span><button class="control" id="demo-next" type="button">${t("Suivant","Next")}</button><button class="control" id="demo-zoom" type="button">${t("Plein écran","Full screen")}</button></div>
     </div>
