@@ -27,6 +27,10 @@ function page(lang, loc) {
     `<a class="${type}" href="${safe(playUrl(section))}" data-event="play_click" data-section="${section}">${label}</a>`;
   const screenshot = (name, alt, lazy = true) =>
     `<img src="${asset(`screenshots/${name}.webp`)}" alt="${safe(alt)}" ${lazy ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" width="700" height="1428">`;
+  const simulationPreview = module => `<a class="module-video-preview" href="#screens" data-demo-link="${module}">
+    <img src="${asset("videos/simulation-vanne-pid.webp")}" alt="${t("Capture de la courbe de réponse issue de la vidéo","Response curve captured from the video")}" loading="lazy" decoding="async" width="420" height="922">
+    <span>${t("Voir la vidéo de simulation","Watch the simulation video")}</span>
+  </a>`;
   const documentFile = (doc, extension) => `sample-certificates/${doc.export ?? `${doc.id}-${lang}`}.${extension}`;
   const fullCertificate = documents.find(doc => doc.id === "complete");
   const thumbnail = (doc, alt) =>
@@ -105,7 +109,7 @@ function page(lang, loc) {
   <div class="intro"><h2>${t("Fonctionnalités pour les interventions de terrain","Features for field interventions")}</h2><p class="lead">${t("Pour les techniciens instrumentation, prestataires de métrologie, laboratoires et équipes de maintenance.","For instrumentation technicians, metrology service providers, laboratories and maintenance teams.")}</p></div>
   <div class="cards modules">${modules.map((m,i)=>{
     const screen=shotData[m.id]?.[0];
-    return `<article class="card" id="module-${m.id}"><span class="module-marker" aria-hidden="true">${icons[i]}</span><h3>${m.name[loc]}</h3><p>${m.desc[loc]}</p>${screen ? `<a href="#screens" data-demo-link="${m.id}" aria-label="${safe(t("Voir la démonstration de ","See the demo for ")+m.name[loc])}">${screenshot(screen[0],screen[loc+1]).replace("<img ","<img class=\"module-shot\" ")}</a>` : ""}${["pid","valve"].includes(m.id) ? `<a class="module-link" href="#screens" data-demo-link="${m.id}">${t("Voir la vidéo de simulation","Watch the simulation video")}</a>` : ""}<p class="action">${m.actions[loc]}</p><p class="plan">${m.plan[loc]}</p>${play(`module-${m.id}`,t("Découvrir sur Google Play","Explore on Google Play"),"module-link")}</article>`;
+    return `<article class="card" id="module-${m.id}"><span class="module-marker" aria-hidden="true">${icons[i]}</span><h3>${m.name[loc]}</h3><p>${m.desc[loc]}</p>${screen ? `<a href="#screens" data-demo-link="${m.id}" aria-label="${safe(t("Voir la démonstration de ","See the demo for ")+m.name[loc])}">${screenshot(screen[0],screen[loc+1]).replace("<img ","<img class=\"module-shot\" ")}</a>` : ""}${["pid","valve"].includes(m.id) ? simulationPreview(m.id) : ""}<p class="action">${m.actions[loc]}</p><p class="plan">${m.plan[loc]}</p>${play(`module-${m.id}`,t("Découvrir sur Google Play","Explore on Google Play"),"module-link")}</article>`;
   }).join("")}</div>
 </div></section>
 <section class="section wash" id="screens"><div class="wrap">
