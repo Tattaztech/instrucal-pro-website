@@ -1,7 +1,7 @@
 import {mediaUrl} from './video-catalog.js';
 
-export async function applySiteContent() {
-  const response = await fetch(new URL('./content/site.json', import.meta.url), {cache:'no-cache'});
+export async function applySiteContent(contentUrl = new URL('./content/site.json', import.meta.url)) {
+  const response = await fetch(contentUrl, {cache:'no-cache'});
   if (!response.ok) return;
   const content = await response.json();
   const lang = document.documentElement.lang;

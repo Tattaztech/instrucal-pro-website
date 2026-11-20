@@ -15,8 +15,92 @@ media:
     rename: safe
 
 content:
+  - name: company
+    label: TATAZ TECH LLC — accueil et catalogue
+    type: file
+    path: assets/content/company.json
+    fields:
+      - name: contactEmail
+        label: Adresse de contact confirmée
+        type: string
+        required: true
+      - name: professionalEmail
+        label: E-mail sur tataztech.com (à confirmer avant utilisation)
+        type: string
+      - name: theme
+        label: Palette
+        type: select
+        options:
+          values:
+            - {name: navy, label: Bleu nuit et turquoise}
+            - {name: teal, label: Vert pétrole et menthe}
+            - {name: slate, label: Ardoise et bleu ciel}
+      - name: fr
+        label: Français
+        type: object
+        fields:
+          - {name: title, label: Titre de l’accueil, type: string, required: true}
+          - {name: description, label: Description de l’accueil, type: text, required: true}
+          - {name: galleryTitle, label: Titre de la galerie, type: string}
+      - name: en
+        label: English
+        type: object
+        fields:
+          - {name: title, label: Home title, type: string, required: true}
+          - {name: description, label: Home description, type: text, required: true}
+          - {name: galleryTitle, label: Gallery title, type: string}
+      - name: items
+        label: Photos et blocs de texte
+        type: object
+        list: true
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+            options: {media: photos}
+          - name: fr
+            label: Français
+            type: object
+            fields:
+              - {name: title, label: Titre, type: string}
+              - {name: description, label: Description, type: text}
+              - {name: photoAlt, label: Texte alternatif, type: string}
+          - name: en
+            label: English
+            type: object
+            fields:
+              - {name: title, label: Title, type: string}
+              - {name: description, label: Description, type: text}
+              - {name: photoAlt, label: Image description, type: string}
+      - name: applications
+        label: Catalogue — régénérer le site après modification
+        type: object
+        list: true
+        fields:
+          - {name: slug, label: Identifiant URL (minuscules et tirets), type: string, required: true}
+          - {name: name, label: Nom du produit, type: string, required: true}
+          - name: status
+            label: Statut (disponibilité à confirmer avant modification)
+            type: select
+            options:
+              values:
+                - {name: soon, label: Bientôt disponible}
+                - {name: maintenance, label: En maintenance}
+                - {name: available, label: Disponible confirmé}
+          - name: fr
+            label: Français
+            type: object
+            fields:
+              - {name: category, label: Domaine, type: string}
+              - {name: description, label: Description, type: text}
+          - name: en
+            label: English
+            type: object
+            fields:
+              - {name: category, label: Area, type: string}
+              - {name: description, label: Description, type: text}
   - name: homepage
-    label: Accueil et thème
+    label: InstruCal Pro — accueil et thème
     type: file
     path: assets/content/site.json
     fields:

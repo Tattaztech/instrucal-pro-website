@@ -1,6 +1,6 @@
-# InstruCal Pro · site commercial
+# TATAZ TECH LLC · site et catalogue d’applications
 
-Site statique sur GitHub Pages. La production actuelle provient de `main`, dossier `/`. La refonte est préparée sur une branche de révision. Ne fusionner qu’après validation.
+Site statique sur GitHub Pages. La production provient de `main`, dossier `/`. La plateforme TATAZ TECH LLC est préparée sur `codex/tataztech-platform` pour validation. Consulter [le dossier d’architecture, de contenu et de déploiement](deployment/README.md) pour le domaine tataztech.com et les pages de chaque application.
 
 ## Modifier la page
 

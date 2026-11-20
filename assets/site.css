@@ -20,7 +20,7 @@ nav a{color:white;text-decoration:none;font-size:.88rem}
 nav a:hover{text-decoration:underline}
 .lang{white-space:nowrap;font-weight:750}
 .lang a{color:var(--teal)}
-.menu{display:none}
+.menu{display:none;background:transparent}
 .dark{background:var(--navy);color:white}
 .dark :focus-visible,header :focus-visible{outline-color:#ffda91}
 .hero{background:radial-gradient(ellipse at 80% 20%,var(--hero-accent,#16465b),var(--navy) 68%);padding:64px 0}

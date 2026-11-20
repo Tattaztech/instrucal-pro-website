@@ -1,0 +1,35 @@
+/* Company pages reuse the product's accessible palette and layout primitives. */
+.company-header .brand{font-size:1.05rem;letter-spacing:.015em}
+.company-hero h1{overflow-wrap:anywhere}
+.company-hero{padding:80px 0;background:radial-gradient(ellipse at 100% 0,var(--hero-accent,#16465b),var(--navy) 70%)}
+.company-hero h1{font-size:clamp(2.7rem,5.5vw,4.8rem);line-height:1.04;letter-spacing:-.045em;max-width:16ch}
+.company-hero .lead{max-width:52ch}
+.company-feature{background:#fff;color:var(--ink);padding:22px;border-radius:20px;min-width:0;box-shadow:0 20px 70px #0003}
+.company-feature .phone{max-width:160px;margin:auto}
+.company-feature .split{gap:22px;grid-template-columns:1fr 1.2fr}
+.company-feature .lead{color:var(--muted);font-size:1rem}
+.company-feature h2{font-size:1.8rem}
+.company-feature .eyebrow{color:var(--darkteal)}
+.catalogue{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.app-card{display:flex;flex-direction:column;padding:26px}
+.app-card h2,.app-card h3{margin-top:14px;font-size:1.7rem}
+.app-card .actions{margin-top:auto;padding-top:20px}
+.app-card .category{font-weight:700;color:var(--darkteal)}
+.app-status{display:inline-flex;width:fit-content;padding:3px 10px;border-radius:20px;font-size:.9rem;background:#edf2f5;color:#3c5163}
+.app-status.available{background:#d9f4eb;color:#115343}
+.app-card img{width:100%;max-height:250px;object-fit:contain;margin-top:16px;border-radius:10px}
+.product-masthead{background:var(--navy2);color:#fff}
+.product-masthead .wrap{display:flex;gap:10px 25px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.product-masthead a{color:#fff;font-size:.9rem}
+.product-masthead+.skip{top:70px}
+.company-about{max-width:75ch}
+.company-about p+p{margin-top:16px}
+.contact-cards a{overflow-wrap:anywhere}
+.legal-content{max-width:78ch}
+.legal-content h2{font-size:1.4rem;margin:32px 0 12px}
+.legal-content p+p{margin-top:12px}
+.legal-content ul{padding-left:20px}
+.prelaunch{max-width:68ch}
+.prelaunch h1{font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;margin-top:20px}
+@media(max-width:760px){.catalogue{grid-template-columns:1fr}.company-hero{padding:45px 0}.company-feature .split{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.company-hero h1{font-size:2.3rem}.company-feature .split{grid-template-columns:minmax(0,1fr)}.company-feature .phone{display:none}.app-card{padding:21px}}

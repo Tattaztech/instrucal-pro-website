@@ -1,0 +1,75 @@
+{
+  "company": "TATAZ TECH LLC",
+  "contactEmail": "oami.familly@gmail.com",
+  "professionalEmail": "",
+  "theme": "navy",
+  "fr": {
+    "title": "Des applications pour vos activités professionnelles",
+    "description": "TATAZ TECH LLC édite des logiciels et des applications mobiles pour les professionnels et les entreprises. Découvrez InstruCal Pro et nos projets dédiés à la maintenance, à la métrologie et au suivi de projets.",
+    "company": "Nous réunissons nos applications au sein d’un même catalogue, avec une page dédiée à chaque produit. Notre offre couvre l’instrumentation et l’étalonnage, avec des projets orientés maintenance, métrologie et suivi de projets.",
+    "contact": "Présentez-nous votre activité, l’application concernée et le besoin de votre équipe.",
+    "galleryTitle": "Nos solutions en images"
+  },
+  "en": {
+    "title": "Applications for your professional workflows",
+    "description": "TATAZ TECH LLC publishes software and mobile applications for professionals and businesses. Explore InstruCal Pro and our projects for maintenance, metrology and project tracking.",
+    "company": "Our applications share a single catalogue, with a dedicated page for each product. Our offering covers instrumentation and calibration, with projects focused on maintenance, metrology and project tracking.",
+    "contact": "Tell us about your business, the application you are interested in and your team's needs.",
+    "galleryTitle": "Our solutions in pictures"
+  },
+  "items": [],
+  "applications": [
+    {
+      "slug": "instrucal-pro",
+      "name": "InstruCal Pro",
+      "status": "available",
+      "fr": {
+        "category": "Instrumentation et étalonnage",
+        "description": "Conversions industrielles, certificats PDF, contrôles de vannes et de soupapes, et simulation de régulation sur Android."
+      },
+      "en": {
+        "category": "Instrumentation and calibration",
+        "description": "Industrial conversion tools, PDF certificates, valve and safety valve tests, and control simulation on Android."
+      }
+    },
+    {
+      "slug": "sav-manager-pro",
+      "name": "SAV Manager Pro",
+      "status": "soon",
+      "fr": {
+        "category": "Interventions et maintenance",
+        "description": "Application prévue pour la gestion des interventions et de la maintenance."
+      },
+      "en": {
+        "category": "Service and maintenance",
+        "description": "Planned application for service and maintenance management."
+      }
+    },
+    {
+      "slug": "calmetrologie",
+      "name": "CalMetrologie",
+      "status": "maintenance",
+      "fr": {
+        "category": "Métrologie multidomaine",
+        "description": "Projet de métrologie multidomaine actuellement en maintenance."
+      },
+      "en": {
+        "category": "Multidomain metrology",
+        "description": "Multidomain metrology project currently under maintenance."
+      }
+    },
+    {
+      "slug": "projecttrack-pro",
+      "name": "ProjectTrack Pro",
+      "status": "maintenance",
+      "fr": {
+        "category": "Gestion et suivi de projets",
+        "description": "Projet de gestion et de suivi de projets actuellement en maintenance."
+      },
+      "en": {
+        "category": "Project management and tracking",
+        "description": "Project management and tracking project currently under maintenance."
+      }
+    }
+  ]
+}
